@@ -1,6 +1,6 @@
 {
   "name": "ofd.js",
-  "version": "0.2.1",
+  "version": "0.2.6",
   "main": "lib/ofd.umd.min.js",
   "author": "dltech21",
   "description": "ofd渲染",
@@ -24,7 +24,7 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
-    "fast-xml-parser": "^3.17.4",
+    "ofd-xml-parser": "^0.0.2",
     "js-md5": "^0.7.3",
     "js-sha1": "^0.6.0",
     "jsrsasign": "^9.1.9",
@@ -68,5 +68,9 @@
     "type": "git",
     "url": "https://github.com/DLTech21/ofd.js"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "funding": {
+    "type": "paypal",
+    "url": "https://paypal.me/donaltong"
+  }
 }

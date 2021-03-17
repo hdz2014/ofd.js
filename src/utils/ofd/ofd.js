@@ -47,6 +47,7 @@ export const parseOfdDocument = function (options) {
 }
 
 const doParseOFD = function (options) {
+    global.xmlParseFlag = 0;
     pipeline.call(this, async () => await unzipOfd(options.ofd), getDocRoots, parseSingleDoc)
         .then(res => {
             if (options.success) {
@@ -72,7 +73,7 @@ export const renderOfd = function (screenWidth, ofd) {
         let pageDiv = document.createElement('div');
         pageDiv.id = pageId;
         pageDiv.setAttribute('style', `margin-bottom: 20px;position: relative;width:${box.w}px;height:${box.h}px;background: white;`)
-        renderPage(pageDiv, page, ofd.tpls, ofd.fontResObj, ofd.drawParamResObj, ofd.multiMediaResObj);
+        renderPage(pageDiv, page, ofd.tpls, ofd.fontResObj, ofd.drawParamResObj, ofd.multiMediaResObj, ofd.compositeGraphicUnits);
         divArray.push(pageDiv);
     }
     return divArray;
@@ -88,8 +89,8 @@ export const renderOfdByScale = function (ofd) {
         const pageId = Object.keys(page)[0];
         let pageDiv = document.createElement('div');
         pageDiv.id = pageId;
-        pageDiv.setAttribute('style', `margin-bottom: 20px;position: relative;width:${box.w}px;height:${box.h}px;background: white;`)
-        renderPage(pageDiv, page, ofd.tpls, ofd.fontResObj, ofd.drawParamResObj, ofd.multiMediaResObj);
+        pageDiv.setAttribute('style', `overflow: hidden;margin-bottom: 20px;position: relative;width:${box.w}px;height:${box.h}px;background: white;`)
+        renderPage(pageDiv, page, ofd.tpls, ofd.fontResObj, ofd.drawParamResObj, ofd.multiMediaResObj, ofd.compositeGraphicUnits);
         divArray.push(pageDiv);
     }
     return divArray;
